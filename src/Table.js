@@ -160,22 +160,17 @@ const Table = () => {
   };
   const submitHandler = (e) => {
     e.preventDefault();
-    setData((prevState) => ({
-      prevState,
-      ...rowForm,
-    }));
-    // setData();
-    console.log(rowForm);
-    // setEdit(false);
+    // map the current data & updates object returns the newDataArray
+    const updatedDataArray = data.map(dataItem =>  
+    dataItem.id === rowForm.id ? {...updatedDataArray, ...rowForm} : dataItem );
+    setData(updatedDataArray);
+    setEdit(false);
   };
   const handleChange = (e) => {
     setRowForm((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value.trim(),
     }));
-
-    console.log(data);
-    // console.log(rowForm);
   };
 
   return (
