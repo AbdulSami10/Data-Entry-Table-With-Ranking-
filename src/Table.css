@@ -19,11 +19,13 @@ td {
 table {
   border-collapse: collapse;
   width: 100%;
+  max-width: 700px;
+  margin: auto;
 }
 .center {
   text-align: center;
 }
-form {
+/* form {
   position: fixed;
   display: block;
   padding: 20px;
@@ -33,4 +35,160 @@ input {
   padding: 10px 20px;
   display: block;
   text-align: center;
+} */
+.adminColor {
+  color: red;
+  background-color: rgba(0, 0, 0, 0.164);
+}
+.managerColor {
+  color: green;
+  background-color: lightgreen;
+}
+.superAdminColor {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.767);
+}
+.staffColor {
+  color: pink;
+  background-color: purple;
+}
+
+.restricted {
+  visibility: hidden;
+}
+.btn {
+  transition: 0.25s all ease-out;
+  padding: 7px 14px;
+  border-radius: 5px;
+  border: none;
+  font-size: 15px;
+}
+.delete {
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.25s;
+}
+.delete:hover {
+  color: red;
+  cursor: pointer;
+}
+.edit {
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.25s;
+}
+.edit:hover {
+  color: lightgreen;
+  cursor: pointer;
+}
+.addUser {
+  color: white;
+  background-color: green;
+  border: 1px solid green;
+}
+.addUser:hover {
+  background-color: white;
+  color: green;
+  cursor: pointer;
+}
+select {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}
+.form input {
+  display: block;
+  font-size: larger;
+}
+.form input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.form input[type="email"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form input[type="submit"] {
+  width: 100%;
+  background-color: #04aa6d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.add {
+  background-color: #04aa6d;
+}
+.add:hover {
+  background-color: #04aa6d;
+}
+.form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+.form input[type="button"] {
+  width: 100%;
+  background-color: red;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form input[type="button"]:hover {
+  background-color: rgb(255, 72, 0);
+}
+
+.form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  max-width: 500px;
+
+  margin: auto;
+}
+.p1 {
+  display: inline;
+  padding: 0 4px;
+}
+.curuser {
+  margin: auto;
+  max-width: 235px;
+  border: 1px solid black;
+}
+.curuser h1 {
+  letter-spacing: 5px;
+  padding: 0 5px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.onConfirmBtn {
+  width: 100%;
+  background-color: #04aa6d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.onConfirmBtn:hover {
+  background-color: #04aa6d;
 }

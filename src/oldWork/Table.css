@@ -1,0 +1,36 @@
+h1 {
+  font-weight: bolder;
+}
+
+.FirstTable {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+  border-radius: 25px;
+  justify-content: center;
+  box-shadow: 2px 2px 2px 1px black;
+}
+th,
+tr,
+td {
+  border: 1px solid black;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.center {
+  text-align: center;
+}
+form {
+  position: fixed;
+  display: block;
+  padding: 20px;
+  margin-left: 500px;
+}
+input {
+  padding: 10px 20px;
+  display: block;
+  text-align: center;
+}
