@@ -16,7 +16,7 @@ export const newData = [
   {
     id: 3,
     userName: "Mohammad Maaz",
-    email: "mohammadmaaz@gmail.com",
+    email: "maaz@gmail.com",
     userAccess: "Super Admin",
     accStatus: true,
   },
@@ -30,7 +30,7 @@ export const newData = [
   {
     id: 4,
     userName: "mohmmad Ahmed",
-    email: "mohammadahmed@gmail.com",
+    email: "ahmed@gmail.com",
     userAccess: "Restricted",
     accStatus: false,
   },

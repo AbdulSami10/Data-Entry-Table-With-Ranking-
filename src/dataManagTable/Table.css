@@ -16,11 +16,26 @@ tr,
 td {
   border: 1px solid black;
 }
+tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
 table {
   border-collapse: collapse;
   width: 100%;
-  max-width: 700px;
+  max-width: 800px;
   margin: auto;
+  background-color: white;
+  box-shadow: 4px 4px 50px 4px black;
+  font-family: sans-serif;
+  /* padding: 5px; */
+  /* border-spacing: 100px; */
 }
 .center {
   text-align: center;
@@ -85,6 +100,8 @@ input {
   color: white;
   background-color: green;
   border: 1px solid green;
+  text-align: right;
+  justify-content: right;
 }
 .addUser:hover {
   background-color: white;
@@ -161,23 +178,41 @@ select {
   background-color: #f2f2f2;
   padding: 20px;
   max-width: 500px;
-
-  margin: auto;
+  position: fixed;
+  top: 22vh;
+  left: 28%;
+  width: 80%;
+  z-index: 100;
+  overflow: hidden;
 }
 .p1 {
   display: inline;
   padding: 0 4px;
+  color: white;
+  font-weight: bolder;
+  text-shadow: 1px 1px 1px black;
 }
 .curuser {
-  margin: auto;
   max-width: 235px;
-  border: 1px solid black;
+  display: inline;
 }
-.curuser h1 {
-  letter-spacing: 5px;
-  padding: 0 5px;
+.curuser h3,
+h2 {
   margin-bottom: 0;
   margin-top: 0;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.curuser h2 {
+  color: gold;
+}
+.BigCurUser {
+  /* background-color: grey; */
+  padding: 5px;
+  margin-bottom: 100px;
+  font-size: 20px;
 }
 .onConfirmBtn {
   width: 100%;
@@ -191,4 +226,13 @@ select {
 }
 .onConfirmBtn:hover {
   background-color: #04aa6d;
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.75);
 }

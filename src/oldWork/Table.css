@@ -16,6 +16,16 @@ tr,
 td {
   border: 1px solid black;
 }
+tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
 table {
   border-collapse: collapse;
   width: 100%;
