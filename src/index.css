@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: url(./bg2.webp);
-
+  font-family: Georgia, "Times New Roman", Times, serif;
   /* background-size: cover; */
 }
 

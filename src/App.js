@@ -1,12 +1,12 @@
 import React from "react";
-import Foter from "./dataManagTable/footer";
-import Table from "./dataManagTable/Table";
+import Main from "./dataManagmentTable2.0/Main";
+import Foter from "./OldDataManagTable/footer";
+import Table from "./OldDataManagTable/Table";
 
 function App() {
   return (
     <React.Fragment>
-      <Table />
-      {/* <Foter /> */}
+      <Main />
     </React.Fragment>
   );
 }

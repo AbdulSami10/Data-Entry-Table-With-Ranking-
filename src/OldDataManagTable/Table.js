@@ -3,6 +3,9 @@ import { newData } from "./newData";
 import "./Table.css";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons/lib/icons";
 import Foter from "./footer";
+import { BiSearchAlt } from "react-icons/bi";
+
+import SearchBar from "./SeacrhBar";
 
 // const getLocalData = () => {
 //   const LocalData = localStorage.getItem("data");
@@ -14,11 +17,16 @@ import Foter from "./footer";
 //   }
 // };
 
-function Table() {
+function Table(props) {
   const [data, setData] = useState(newData);
   const [rowForm, setRowForm] = useState("");
   const [form, setForm] = useState(false);
-  const [curUser, setCurUser] = useState(data[0]);
+  const [curUser, setCurUser] = useState({
+    userName: "Staff One",
+    email: "staffone@gmail.com",
+    userAccess: "Admin",
+    accStatus: false,
+  });
   const [editChangeEnable, setEditChangeEnable] = useState(false);
   const [userDupli, setUserDupli] = useState(false);
   const [errorForm, setErrorForm] = useState(false);
@@ -28,10 +36,11 @@ function Table() {
     userAccess: "Staff",
     accStatus: true,
   });
+  const [searchData, setSearchData] = useState("");
 
-  // useEffect(() => {
-  //   localStorage.setItem("data", JSON.stringify(data));
-  // }, [data]);
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
   const deleteItemHandler = (userName) => {
     setData((prevList) => {
       const updates = prevList.filter((a) => a.userName !== userName);
@@ -52,7 +61,7 @@ function Table() {
     // map the current data & updates object returns the newDataArray
 
     // console.log(newData);
-    insertData(newData);
+    // insertData(newData);
     const updatedDataArray = data.map((dataItem) =>
       dataItem.id === rowForm.id ? { ...data, ...rowForm } : dataItem
     );
@@ -105,81 +114,117 @@ function Table() {
 
   return (
     <React.Fragment>
-      <div className="BigCurUser">
-        <div className="curuser">
-          <h3>Current User</h3>
-          <h2>{curUser.userName} </h2>
-          <p className="p1">{curUser.userAccess} </p>
-        </div>
-        {curUser.userAccess === "Staff" ||
-        curUser.userAccess === "Manager" ||
-        curUser.userAccess === "Restricted" ? (
-          ""
-        ) : (
-          <button
-            className="btn addUser"
-            onClick={() => {
-              setForm(true);
-            }}
-          >
-            AddUser
-          </button>
-        )}
+      <div className="curuser">
+        <h3>Current User</h3>
+        <h2>{curUser.userName} </h2>
+        <p className="p1">{curUser.userAccess} </p>
       </div>
-      {
-        <table>
-          <tr>
-            <th>Username</th>
-            <th>Email</th>
-            <th>User Access</th>
-            <th>Account Status</th>
-          </tr>
 
-          {data.map((data) => {
-            return (
-              <tr>
-                <th>
-                  {data.userName}
-                  {curUser.userName === data.userName ? "(You)" : ""}
-                </th>
-                <th>{data.email} </th>
-                <th
-                  className={
-                    data.userAccess.toLowerCase() === "admin"
-                      ? "adminColor"
-                      : data.userAccess.toLowerCase() === "staff"
-                      ? "staffColor"
-                      : data.userAccess.toLowerCase() === "manager"
-                      ? "managerColor"
-                      : data.userAccess.toLowerCase() === "super admin"
-                      ? "superAdminColor"
-                      : ""
-                  }
-                >
-                  {data.userAccess}
-                </th>
+      <div className="tableDiv">
+        <div className="table-top">
+          <span>
+            <div className="searchbar-box">
+              <input
+                value={searchData}
+                type="searchbox"
+                placeholder="Search for items and brands"
+                onChange={(e) => {
+                  setSearchData(e.target.value);
+                }}
+              />
+              <span className="searchbar-icon">
+                <BiSearchAlt
+                  onClick={() => {
+                    const searchInput = [
+                      {
+                        userName: searchData,
+                        email: searchData,
+                        userAccess: searchData,
+                        accStatus: true,
+                      },
+                    ];
+                    // data.filter((a)=>{})
+                    // if (searchInput.userName === data.userName) {
+                    //   console.log("working");
+                    // } else {
+                    //   return "not";
+                    // }
+                    console.log(searchInput);
+                    setSearchData("");
+                  }}
+                />
+              </span>
+            </div>
+          </span>
+          {curUser.userAccess === "Staff" ||
+          curUser.userAccess === "Manager" ||
+          curUser.userAccess === "Restricted" ? (
+            ""
+          ) : (
+            <button
+              className="btn addUser"
+              onClick={() => {
+                setForm(true);
+              }}
+            >
+              AddUser
+            </button>
+          )}
+        </div>
+        {
+          <table>
+            <tr>
+              <th>Username</th>
+              <th>Email</th>
+              <th>User Access</th>
+              <th>Account Status</th>
+            </tr>
 
-                <th>{data.accStatus ? 1 : 0} </th>
-                {curUser.userAccess === "Staff" ||
-                curUser.userAccess === "Restricted" ? (
-                  ""
-                ) : (
+            {data.map((data) => {
+              return (
+                <tr>
+                  <th>
+                    {data.userName}
+                    {curUser.userName === data.userName ? "(You)" : ""}
+                  </th>
+                  <th>{data.email} </th>
                   <th
                     className={
-                      // data.userAccess.toLowerCase() === "restricted"
-                      //   ? "restricted"
-                      //   : "" ||
-                      (curUser.userAccess === "Admin" &&
-                        data.userAccess === "Super Admin") ||
-                      (curUser.userAccess === "Manager" &&
-                        data.userAccess === "Super Admin") ||
-                      (curUser.userAccess === "Manager" &&
-                        data.userAccess === "Admin")
-                        ? "restricted"
+                      data.userAccess.toLowerCase() === "admin"
+                        ? "adminColor"
+                        : data.userAccess.toLowerCase() === "staff"
+                        ? "staffColor"
+                        : data.userAccess.toLowerCase() === "manager"
+                        ? "managerColor"
+                        : data.userAccess.toLowerCase() === "super admin"
+                        ? "superAdminColor"
                         : ""
                     }
                   >
-                    {/* <button
+                    {data.userAccess}
+                  </th>
+
+                  <th>{data.accStatus ? 1 : 0} </th>
+                  {curUser.userAccess === "Staff" ||
+                  curUser.userAccess === "Restricted" ? (
+                    ""
+                  ) : (
+                    <th
+                      className={
+                        // data.userAccess.toLowerCase() === "restricted"
+                        //   ? "restricted"
+                        //   : "" ||
+                        (curUser.userAccess === "Admin" &&
+                          data.userAccess === "Super Admin") ||
+                        (curUser.userAccess === "Manager" &&
+                          data.userAccess === "Super Admin") ||
+                        (curUser.userAccess === "Manager" &&
+                          data.userAccess === "Admin")
+                          ? "restricted"
+                          : ""
+                      }
+                    >
+                      {/* <button
                       className="btn edit"
                       onClick={() => {
                         editItem(data.id);
@@ -189,32 +234,32 @@ function Table() {
                     >
                       Edit
                     </button> */}
-                    <EditOutlined
-                      className="edit"
-                      onClick={() => {
-                        editItem(data.userName);
-                        setEditChangeEnable(true);
-                        setForm(true);
-                      }}
-                    />
-                    {/* <button
+                      <EditOutlined
+                        className="edit"
+                        onClick={() => {
+                          editItem(data.userName);
+                          setEditChangeEnable(true);
+                          setForm(true);
+                        }}
+                      />
+                      {/* <button
                       className="btn delete"
                       onClick={() => deleteItemHandler(data.id)}
                     >
                       Delete
                     </button> */}
-                    <DeleteOutlined
-                      className="btn delete"
-                      onClick={() => deleteItemHandler(data.userName)}
-                    />
-                  </th>
-                )}
-              </tr>
-            );
-          })}
-        </table>
-      }
-
+                      <DeleteOutlined
+                        className="btn delete"
+                        onClick={() => deleteItemHandler(data.userName)}
+                      />
+                    </th>
+                  )}
+                </tr>
+              );
+            })}
+          </table>
+        }
+      </div>
       {form && (
         <React.Fragment>
           <div className="backdrop" />
