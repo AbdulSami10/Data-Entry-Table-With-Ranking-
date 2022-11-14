@@ -35,6 +35,9 @@ table {
   max-width: 800px;
   margin: auto;
   background-color: white;
+  margin-left: 0;
+  margin-right: 0;
+
   /* font-family: sans-serif; */
   /* padding: 5px; */
   /* border-spacing: 100px; */
@@ -250,8 +253,6 @@ h2 {
   color: white;
   background-color: green;
   border: 1px solid green;
-  text-align: right;
-  /* display: inline; */
 }
 .addUser:hover {
   background-color: white;
@@ -260,4 +261,16 @@ h2 {
 }
 .table-top span {
   display: inline;
+}
+
+.tableDiv {
+  display: block;
+}
+.tableDiv-top {
+  display: flex;
+  justify-content: space-between;
+}
+.addUser-div {
+  align-items: center;
+  background-color: black;
 }

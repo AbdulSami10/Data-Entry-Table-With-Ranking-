@@ -63,7 +63,9 @@ function Table(props) {
     // console.log(newData);
     // insertData(newData);
     const updatedDataArray = data.map((dataItem) =>
-      dataItem.id === rowForm.id ? { ...data, ...rowForm } : dataItem
+      dataItem.userName === rowForm.userName
+        ? { ...data, ...rowForm }
+        : dataItem
     );
     setData(updatedDataArray);
     setCurUser(data[0]);

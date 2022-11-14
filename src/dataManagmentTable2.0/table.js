@@ -4,6 +4,7 @@ import { EditOutlined, DeleteOutlined } from "@ant-design/icons/lib/icons";
 import { curUser } from "./curUserData";
 import Form from "./Form";
 import CurrentUserUI from "./CurrentUserUI";
+import SearchBar from "../OldDataManagTable/SeacrhBar";
 
 function Table() {
   const [data, setData] = useState(newData);
@@ -28,21 +29,27 @@ function Table() {
   return (
     <React.Fragment>
       <CurrentUserUI />
+
       <div className="tableDiv">
-        {curUser.userAccess === "Staff" ||
-        curUser.userAccess === "Manager" ||
-        curUser.userAccess === "Restricted" ? (
-          ""
-        ) : (
-          <button
-            className="btn addUser"
-            onClick={() => {
-              setForm(true);
-            }}
-          >
-            AddUser
-          </button>
-        )}
+        <div className="tableDiv-top">
+          <SearchBar />
+          <span className="addUser-div">
+            {curUser.userAccess === "Staff" ||
+            curUser.userAccess === "Manager" ||
+            curUser.userAccess === "Restricted" ? (
+              ""
+            ) : (
+              <button
+                className="btn addUser"
+                onClick={() => {
+                  setForm(true);
+                }}
+              >
+                AddUser
+              </button>
+            )}
+          </span>
+        </div>
         <table>
           <tr>
             <th>Username</th>

@@ -21,7 +21,9 @@ function Form(props) {
     e.preventDefault();
     // insertData(newData);
     const updatedDataArray = data.map((dataItem) =>
-      dataItem.id === rowForm.id ? { ...data, ...rowForm } : dataItem
+      dataItem.userName === rowForm.userName
+        ? { ...data, ...rowForm }
+        : dataItem
     );
     setData(updatedDataArray);
 
@@ -56,7 +58,7 @@ function Form(props) {
 
   const handleChange = (e) => {
     if (editChangeEnable) {
-      props.setRowForm((prevState) => ({
+      setRowForm((prevState) => ({
         ...prevState,
         [e.target.name]: e.target.value.trim(),
       }));
@@ -125,6 +127,11 @@ function Form(props) {
           value="Cancel"
           onClick={() => {
             setForm(false);
+            // rowForm.userName = "";
+            // rowForm.email = "";
+            // rowForm.userAccess = "";
+            // newUser.userName = "";
+            // newUser.email = "";
           }}
         />
       </form>
