@@ -7,7 +7,7 @@ const SearchBar = () => {
     <div>
       <div>
         <div className="searchbar-box">
-          <input type="searchbox" placeholder="Search for items and brands" />
+          <input type="searchbox" placeholder="Search.." />
           <span className="searchbar-icon">
             <BiSearchAlt />
           </span>

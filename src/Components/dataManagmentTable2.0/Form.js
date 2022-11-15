@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { curUser } from "./curUserData";
 
 function Form(props) {
@@ -110,7 +110,7 @@ function Form(props) {
         </select>
         {userDupli && <p>Username Already Exist</p>}
         {errorForm && <p>Please Fill The Form</p>}
-        {rowForm.userName ? (
+        {rowForm.userName || rowForm.email ? (
           <input type="submit" onClick={submitHandler} value="submit" />
         ) : (
           <input

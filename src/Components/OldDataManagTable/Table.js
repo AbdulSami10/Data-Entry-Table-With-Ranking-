@@ -5,8 +5,6 @@ import { EditOutlined, DeleteOutlined } from "@ant-design/icons/lib/icons";
 import Foter from "./footer";
 import { BiSearchAlt } from "react-icons/bi";
 
-import SearchBar from "./SeacrhBar";
-
 // const getLocalData = () => {
 //   const LocalData = localStorage.getItem("data");
 //   console.log(LocalData);

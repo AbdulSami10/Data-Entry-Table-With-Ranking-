@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { newData } from "../OldDataManagTable/newData";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons/lib/icons";
 import { curUser } from "./curUserData";
 import Form from "./Form";
 import CurrentUserUI from "./CurrentUserUI";
-import SearchBar from "../OldDataManagTable/SeacrhBar";
+import SearchBar from "./SeacrhBar";
+import { List } from "antd";
+
+const getLocalData = () => {
+  let data = localStorage.getItem("data");
+  console.log(data);
+  if (data) {
+    return JSON.parse(localStorage.getItem("data"));
+  } else {
+    return newData;
+  }
+};
 
 function Table() {
-  const [data, setData] = useState(newData);
+  const [data, setData] = useState(getLocalData());
   const [rowForm, setRowForm] = useState("");
   const [form, setForm] = useState(false);
   const [editChangeEnable, setEditChangeEnable] = useState(false);
@@ -26,30 +37,32 @@ function Table() {
 
     setRowForm(edited);
   };
+  useEffect(() => {
+    localStorage.setItem("data", JSON.stringify(data));
+  }, [data]);
   return (
     <React.Fragment>
       <CurrentUserUI />
 
-      <div className="tableDiv">
-        <div className="tableDiv-top">
+      <span className="tableDiv">
+        <span className="tableDiv-top">
           <SearchBar />
-          <span className="addUser-div">
-            {curUser.userAccess === "Staff" ||
-            curUser.userAccess === "Manager" ||
-            curUser.userAccess === "Restricted" ? (
-              ""
-            ) : (
-              <button
-                className="btn addUser"
-                onClick={() => {
-                  setForm(true);
-                }}
-              >
-                AddUser
-              </button>
-            )}
-          </span>
-        </div>
+
+          {curUser.userAccess === "Staff" ||
+          curUser.userAccess === "Manager" ||
+          curUser.userAccess === "Restricted" ? (
+            ""
+          ) : (
+            <button
+              className="btn addUser"
+              onClick={() => {
+                setForm(true);
+              }}
+            >
+              AddUser
+            </button>
+          )}
+        </span>
         <table>
           <tr>
             <th>Username</th>
@@ -118,7 +131,7 @@ function Table() {
             );
           })}
         </table>
-      </div>
+      </span>
       {form && (
         <Form
           rowForm={rowForm}

@@ -32,11 +32,9 @@ tr.active-row {
 table {
   border-collapse: collapse;
   width: 100%;
-  max-width: 800px;
-  margin: auto;
+  max-width: 900px;
+  /* margin: auto; */
   background-color: white;
-  margin-left: 0;
-  margin-right: 0;
 
   /* font-family: sans-serif; */
   /* padding: 5px; */
@@ -242,7 +240,7 @@ h2 {
 }
 .tableDiv {
   background-color: white;
-  padding: 20px;
+  padding: 10px;
   display: block;
   max-width: 850px;
   margin: auto;
@@ -253,6 +251,7 @@ h2 {
   color: white;
   background-color: green;
   border: 1px solid green;
+  margin: 10px 0;
 }
 .addUser:hover {
   background-color: white;
@@ -268,7 +267,8 @@ h2 {
 }
 .tableDiv-top {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 .addUser-div {
   align-items: center;

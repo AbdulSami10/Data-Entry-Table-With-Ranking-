@@ -1,7 +1,7 @@
 import React from "react";
-import Main from "./dataManagmentTable2.0/Main";
-import Foter from "./OldDataManagTable/footer";
-import Table from "./OldDataManagTable/Table";
+import Main from "./Components/dataManagmentTable2.0/Main";
+import Foter from "./Components/OldDataManagTable/footer";
+import Table from "./Components/OldDataManagTable/Table";
 
 function App() {
   return (

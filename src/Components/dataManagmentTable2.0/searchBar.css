@@ -75,7 +75,7 @@ left: 50%;
   cursor: pointer;
 }
 .searchbar-box {
-  width: 500px;
+  width: 250px;
   border-radius: 20px;
   background-color: white;
   display: flex;
