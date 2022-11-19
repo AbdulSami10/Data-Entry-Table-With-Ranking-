@@ -16,7 +16,7 @@
 
 > **that is runing on your browser with `http://localhost:3000`**
 
-![p1](https://user-images.githubusercontent.com/111075041/201409142-f6071c58-e904-4bc9-8387-1a7aaf2929ba.PNG)
+![p1](https://user-images.githubusercontent.com/111075041/202862441-dc8fdaf9-cd96-4821-a7de-02fbeb5e77b9.PNG)
 ![p2](https://user-images.githubusercontent.com/111075041/201409155-7a67ddc0-b0f8-4938-8c89-ca23ebc0278b.PNG)
 
  
