@@ -6,6 +6,7 @@ import Form from "./Form";
 import CurrentUserUI from "./CurrentUserUI";
 import { Input } from "antd";
 import "./Table.css";
+import { Switch } from "antd";
 
 const { Search } = Input;
 
@@ -112,7 +113,13 @@ function Table() {
                     {data.userAccess}
                   </th>
 
-                  <th>{data.accStatus ? 1 : 0} </th>
+                  <th>
+                    {data.accStatus ? (
+                      <Switch defaultChecked disabled />
+                    ) : (
+                      <Switch unCheckedChildren disabled />
+                    )}
+                  </th>
                   {curUser.userAccess === "Staff" ||
                   curUser.userAccess === "Restricted" ? (
                     ""

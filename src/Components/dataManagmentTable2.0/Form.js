@@ -1,3 +1,4 @@
+import { Switch } from "antd";
 import React, { useState, useEffect } from "react";
 import { curUser } from "./curUserData";
 
@@ -92,7 +93,12 @@ function Form(props) {
           onChange={handleChange}
           value={rowForm.email ? rowForm.email : newUser.email}
         />
-
+        <label>Account Status</label>
+        <Switch
+          checkedChildren={
+            rowForm.accStatus ? rowForm.accStatus : newUser.accStatus
+          }
+        />
         <label htmlFor="userAccess">userAccess</label>
 
         <select
